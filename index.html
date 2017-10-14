@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Employee</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    </head>
+    <body>
+        <h3 class="center red-text">Employee Management</h3><br>
+        <div class="center">
+            <a type="button" name="addEmployee" class="waves-effect waves-light btn-large" onclick="addEmp()"><i class="material-icons right">add</i>Add Employee</a>
+            <a type="button" name="addEmployee" class="waves-effect waves-light btn-large" onclick="viewEmployee()"><i class="material-icons right">search</i>View Employees</a>
+        </div><br><br>
+        <div id="addEmployeeDiv" class="container" style="display:none">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input placeholder="Please enter your first name" id="first_name" type="text" class="validate" data-length="25">
+                        <label for="first_name">First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input placeholder="Please enter your last name" id="last_name" type="text" class="validate"  data-length="25">
+                        <label for="last_name">Last Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s8">
+                        <input placeholder="Please enter your email address" id="email_address" type="email" class="validate"  data-length="60">
+                        <label for="email_address" data-error="wrong" data-success="right">Email</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <input disabled type="number" placeholder=" " name="empNoHidden" value="" id="empNoHidden" class="validate" data-length="6">
+                        <label for="empNoHidden">Employee ID</label>
+                    </div>
+                    
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input placeholder="Please enter your mobile number" id="mobile_number" type="number" class="validate" data-length="10">
+                        <label for="mobile_number">Mobile Number</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input placeholder="Please enter your date of birth" id="date_of_birth" type="text" class="datepicker" onclick="selectDate()">
+                        <label for="date_of_birth">Date Of Birth</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <button class="btn-large waves-effect waves-light right" onclick="addEmployee()" type="submit" name="action">Submit
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="viewEmployeeDiv" class="container" style="display:none">
+        <table class="bordered centered highlight">
+                <thead>
+                    <th>Employee No.</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Mobile No.</th>
+                    <th>D.O.B</th>
+                    <th>Action</th>
+                </thead>
+                <tbody id="table_body"></tbody>
+            </table>
+        </div>
+        <script src="https://www.gstatic.com/firebasejs/4.5.1/firebase.js"></script>
+        <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCSiUqbeidkzvYrxjwfiQNLNWE7UvbSahc",
+            authDomain: "employee-management-j0890.firebaseapp.com",
+            databaseURL: "https://employee-management-j0890.firebaseio.com",
+            projectId: "employee-management-j0890",
+            storageBucket: "",
+            messagingSenderId: "1042381836226"
+        };
+        firebase.initializeApp(config);
+        </script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        <script type="text/javascript" src="D:\test\Employee.js"></script>
+    </body>
+</html>
