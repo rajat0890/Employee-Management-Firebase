@@ -10,8 +10,8 @@
     <body>
         <h3 class="center red-text">Employee Management</h3><br>
         <div class="center">
-            <a type="button" name="addEmployee" class="waves-effect waves-light btn-large" onclick="addEmp()"><i class="material-icons right">add</i>Add Employee</a>
-            <a type="button" name="addEmployee" class="waves-effect waves-light btn-large" onclick="viewEmployee()"><i class="material-icons right">search</i>View Employees</a>
+            <a type="button" name="addEmployee" class="waves-effect waves-light btn-large" onclick="addEmp()" style="width:230px;margin-bottom: 10px;"><i class="material-icons right">add</i>Add Employee</a>
+            <a type="button" name="addEmployee" class="waves-effect waves-light btn-large" onclick="viewEmployee()" style="width:230px;margin-bottom: 10px;"><i class="material-icons right">search</i>View Employees</a>
         </div><br><br>
         <div id="addEmployeeDiv" class="container" style="display:none">
             <form class="col s12">
@@ -48,9 +48,9 @@
                 </div>
                 <div class="row">
                     <div class="col s12">
-                        <button class="btn-large waves-effect waves-light right" onclick="addEmployee()" type="submit" name="action">Submit
+                        <a class="btn-large waves-effect waves-light right" onclick="addEmployee()" name="action">Submit
                             <i class="material-icons right">send</i>
-                        </button>
+                        </a>
                     </div>
                 </div>
             </form>
@@ -102,8 +102,15 @@ function addEmp(){
         var empId = parseInt(empNo)+1;
         document.getElementById("empNoHidden").value = empId;
     });
+    document.getElementById("first_name").value = "";
+    document.getElementById("last_name").value = "";
+    document.getElementById("email_address").value = "";
+    document.getElementById("mobile_number").value = "";
+    document.getElementById("date_of_birth").value = "";
     document.getElementById("viewEmployeeDiv").style.display = "none";
     document.getElementById("addEmployeeDiv").style.display = "block";
+    $('.datepicker').pickadate('Clear');
+    $('.datepicker').pickadate('Ok');
 }
 
 
@@ -146,6 +153,7 @@ function writeEmployeeData(empId,firstName,lastName,emailAdd,mobNo,doB) {
       EMAIL : emailAdd,
       DOB : doB
   });
+    viewEmployee();
 }
 
 function deleteEmp(empId){
