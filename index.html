@@ -48,9 +48,9 @@
                 </div>
                 <div class="row">
                     <div class="col s12">
-                        <a class="btn-large waves-effect waves-light right" onclick="addEmployee()" name="action">Submit
+                        <button class="btn-large waves-effect waves-light right" type="submit" onclick="addEmployee()" name="action">Submit
                             <i class="material-icons right">send</i>
-                        </a>
+                        </button>
                     </div>
                 </div>
             </form>
@@ -109,8 +109,6 @@ function addEmp(){
     document.getElementById("date_of_birth").value = "";
     document.getElementById("viewEmployeeDiv").style.display = "none";
     document.getElementById("addEmployeeDiv").style.display = "block";
-    $('.datepicker').pickadate('Clear');
-    $('.datepicker').pickadate('Ok');
 }
 
 
@@ -153,7 +151,6 @@ function writeEmployeeData(empId,firstName,lastName,emailAdd,mobNo,doB) {
       EMAIL : emailAdd,
       DOB : doB
   });
-    viewEmployee();
 }
 
 function deleteEmp(empId){
